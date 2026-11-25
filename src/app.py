@@ -280,7 +280,7 @@ def process_video(video_path, exercise_type):
 
     cap.release()
 
-# --- Report Generation Function --- (JUST A DUMMY VERSION NOW)
+# --- Report Generation Function (rule-based summary) ---
 def generate_workout_report(collected_data, exercise_type):
     report = f"## Workout Summary: {exercise_type.capitalize()}\n\n"
     if not collected_data:
@@ -314,8 +314,8 @@ def generate_workout_report(collected_data, exercise_type):
         if avg_height is not None:
             report += f"*   **Average Peak Angle:** {avg_height:.1f}°\n"
 
-        # Dummy Recommendations
-        report += "\n**Recommendations: (Dummy Recommendations)**\n"
+        # Rule-based recommendations
+        report += "\n**Recommendations (rule-based):**\n"
         depth_feedback = "Go Lower" if exercise_type == "pushup" else "Go Deeper"
         height_feedback = "Extend Arms Fully" if exercise_type == "pushup" else "Stand Straighter"
         angle_down_threshold = thresholds[exercise_type]["down"]
@@ -345,8 +345,8 @@ def generate_workout_report(collected_data, exercise_type):
         max_hold = max(hold_periods) if hold_periods else 0
         report += f"*   **Longest Continuous Hold (Correct Form):** {max_hold:.1f} seconds\n"
 
-        # Dummy Recommendations
-        report += "\n**Recommendations:**\n"
+        # Rule-based recommendations
+        report += "\n**Recommendations (rule-based):**\n"
         if common_corrections.get("Lift Hips", 0) > 5: # Arbitrary count threshold
             report += "*   **Engage Core:** Focus on keeping your hips aligned with your shoulders and ankles. Avoid letting them sag.\n"
         if common_corrections.get("Lower Hips", 0) > 5:
@@ -388,7 +388,7 @@ else:
     st.sidebar.info("Please select an exercise first.")
 
 # --- Main Area ---
-st.title("🏋️ AI Workout Form Analyzer")
+st.title("AI Workout Form Analyzer")
 video_placeholder = st.empty()
 processing_message = st.empty()
 report_placeholder = st.empty() # Placeholder for the final report
