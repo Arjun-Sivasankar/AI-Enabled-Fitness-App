@@ -8,3 +8,23 @@ wheels/
 
 # Virtual environments
 .venv
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local configuration and secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Workout videos and recordings (keep personal footage out of the repo)
+*.mp4
+*.mov
+*.avi
+*.mkv

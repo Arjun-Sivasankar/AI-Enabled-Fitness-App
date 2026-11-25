@@ -1,7 +1,7 @@
 [project]
 name = "fitnessapp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Workout form analysis from video with MediaPipe Pose: rep counting, form feedback and a session report"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -9,4 +9,5 @@ dependencies = [
     "mediapipe>=0.10.14",
     "numpy>=2.2.1",
     "opencv-python>=4.10.0.84",
+    "streamlit>=1.37",
 ]
